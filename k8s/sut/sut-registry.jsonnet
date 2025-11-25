@@ -1,5 +1,6 @@
 local flink = import 'heuristics-miner-flink.jsonnet';
 local objectClassifier = import 'object-classifier.jsonnet';
+local llmService = import 'llm-service.jsonnet';
 local astrolabe = import 'astrolabe.jsonnet';
 local build = import '../util/build-util.jsonnet';
 local buildManifestsFromMap = import '../util/build/build-manifests-from-map.jsonnet';
@@ -30,6 +31,17 @@ function(context)
       namespace: context.functions.sutNamespace
     },
     buildFunction=objectClassifier
+  ),
+  llmService(path, definition): buildManifestsFromMap(
+    path=path,
+    manifestName='llm-service',
+    buildFunction=llmService,
+    definition = definition,
+    externalParameter={
+      bootstrapServer: context.functions.bootstrapServer,
+      topic: context.functions.inputTopic,
+      namespace: context.functions.sutNamespace
+    }
   ),
   astrolabe(path, definition):
     buildManifest(

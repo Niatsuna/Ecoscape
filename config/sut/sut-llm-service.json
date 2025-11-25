@@ -1,0 +1,49 @@
+{
+  "sutType": "llmService",
+  "system": {
+    "edge-zone1-p": {
+      "memory": "2Gi",
+      "cpu": "2",
+      "replicas": 1,
+      "locationLabel": "kube1-3",
+      "kafkaCluster": "zone1",
+      "modelPath": "/models/Qwen2.5-0.5B-Instruct",
+      "pvcName": "ecoscape-pvc",
+      "outputTopic": "reporter",
+      "gpuMode": false
+    },
+    "edge-zone2-p": {
+      "memory": "2Gi",
+      "cpu": "2",
+      "replicas": 1,
+      "locationLabel": "kube1-4",
+      "kafkaCluster": "zone2",
+      "modelPath": "/models/Qwen2.5-0.5B-Instruct",
+      "pvcName": "ecoscape-pvc",
+      "outputTopic": "reporter",
+      "gpuMode": false
+    },
+    "cloud-zone1-p": {
+      "memory": "8Gi",
+      "cpu": "4",
+      "replicas": 1,
+      "locationLabel": "kube1-3",
+      "kafkaCluster": "zone1",
+      "modelPath": "/models/Qwen2.5-0.5B-Instruct",
+      "pvcName": "ecoscape-pvc",
+      "outputTopic": "reporter",
+      "gpuMode": false
+    },
+    "cloud-zone2-p": {
+      "memory": "8Gi",
+      "cpu": "4",
+      "replicas": 1,
+      "locationLabel": "kube1-4",
+      "kafkaCluster": "zone2",
+      "modelPath": "/models/Qwen2.5-0.5B-Instruct",
+      "pvcName": "ecoscape-pvc",
+      "outputTopic": "reporter",
+      "gpuMode": true
+    }
+  }
+}

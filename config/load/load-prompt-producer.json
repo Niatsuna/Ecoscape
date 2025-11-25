@@ -1,0 +1,41 @@
+{
+  "loadType": "promptProducer",
+  "load": {
+    "data0": {
+      "location": "kube1-3",
+      "kafkaCluster": "zone1",
+      "baseRPS": "0.2",
+      "loadPattern": "poisson",
+      "datasetPath": "/data/alpaca/data_train.jsonl",
+      "pvcName": "ecoscape-pvc"
+    },
+    "data1": {
+      "location": "kube1-4",
+      "kafkaCluster": "zone2",
+      "baseRPS": "0.2",
+      "loadPattern": "poisson",
+      "datasetPath": "/data/alpaca/data_train.jsonl",
+      "pvcName": "ecoscape-pvc"
+    }
+  },
+  "topics": {
+    "z1-input": {
+      "partitions": 60,
+      "name": "input",
+      "cluster": "zone1"
+    },
+    "z2-input": {
+      "partitions": 60,
+      "name": "input",
+      "cluster": "zone2"
+    },
+    "z1-reporter": {
+      "name": "reporter",
+      "cluster": "zone1"
+    },
+    "z2-reporter": {
+      "name": "reporter",
+      "cluster": "zone2"
+    }
+  }
+}
